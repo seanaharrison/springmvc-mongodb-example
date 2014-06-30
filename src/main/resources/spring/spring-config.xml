@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- For the autowired Classes -->
+	<context:component-scan base-package="com.example">
+		<!-- Exclude the Web controllers from the Spring root configuration file -->
+		<context:exclude-filter type="regex"
+			expression="com.example.controller" />
+	</context:component-scan>
+
+	<tx:annotation-driven />
+
+	<!-- Enable @Aspect, @Before, @After -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<mongo:mongo id="mongo" host="localhost" port="27017" />
+	<mongo:db-factory dbname="testPost" mongo-ref="mongo" />
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+
+</beans>
+
