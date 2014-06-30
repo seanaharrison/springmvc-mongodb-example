@@ -3,6 +3,8 @@ springmvc-mongodb-example
 
 Spring MVC MongoDB example also uses jquery and bootstrap.
 
+![ScreenShot](https://raw.githubusercontent.com/seana7a7/springmvc-mongodb-example/master/src/main/webapp/img/screen-shot.png)
+
 ##Setup
 1.  Download and install Spring Tool Suite http://spring.io/tools/sts
 2.  Download and install Git http://git-scm.com/downloads
