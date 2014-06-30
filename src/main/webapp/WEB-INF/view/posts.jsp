@@ -60,8 +60,8 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">
 							<strong>${posts.user}</strong> -
-							<fmt:formatDate value="${post.date}" pattern="HH:mm" />
-							<fmt:formatDate type="date" value="${post.date}" />
+							<fmt:formatDate value="${posts.date}" pattern="HH:mm" />
+							<fmt:formatDate type="date" value="${posts.date}" />
 						</h3>
 					</div>
 					<div class="panel-body">${posts.text}</div>
